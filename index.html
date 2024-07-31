@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajit Jaiswal - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #39307d, #ff7eb3);
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <style>
+            #hero {
+                text-align: center;
+                position: relative;
+            }
+            #hero img {
+                cursor: pointer;
+                position: relative;
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
+            .balloon {
+                position: absolute;
+                top: 90px; /* Start from the top of the photo */
+                left: 50%;
+                width: 80px; /* Increased width */
+                height: 80px; /* Increased height */
+                background-color: lightblue;
+                border-radius: 50% 50% 50% 50%; /* Increased border radius */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 14px; /* Slightly increased font size */
+                color: #fff;
+                transform: translateX(-50%);
+                animation: flyUp 5s ease-in-out forwards;
+            }
+            .balloon:before {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                width: 2px;
+                height: 20px;
+                background: #000;
+            }
+            @keyframes flyUp {
+                0% {
+                    top: -10; /* Start from the top of the photo */
+                    opacity: 1;
+                }
+                100% {
+                    top: -100%; /* Fly upwards */
+                    opacity: 0;
+                }
+            }
+        </style>
+        <div id="hero">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Ajit Jaiswal, a Web Developer and an absolute AI freak.</p>
+            <img src="images/Ajit.jpg" alt="Ajit Jaiswal" id="profileImage">
+        </div>
+    
+        <script>
+            document.getElementById('profileImage').addEventListener('click', function() {
+                const balloonTexts = ["Fast learner", "Honest", "Punctual", "Good listener", "Disciplined"];
+                const balloonColors = ["#ff0000", "#00ff00", "#0000ff", "#ff00ff", "#00ffff"]; // Different colors for each balloon
+                const hero = document.getElementById('hero');
+    
+                balloonTexts.forEach((text, index) => {
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon';
+                    balloon.style.backgroundColor = balloonColors[index]; // Assign different colors
+                    balloon.style.animationDelay = `${index *1.0}s`; // Add delay for each balloon
+                    balloon.innerHTML = text;
+                    hero.appendChild(balloon);
+                });
+            });
+        </script>
+    </section>
+    <section id="about" style="padding: 50px; text-align: center; background: rgba(255, 255, 255, 0.8); margin: 50px; border-radius: 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;">
+        <style>
+            #about h2 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                position: relative;
+            }
+            #about p {
+                font-size: 1.2em;
+                line-height: 1.6;
+                margin-bottom: 0;
+            }
+            .wave {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: url('https://cdn.pixabay.com/photo/2015/06/15/16/29/wave-811307_960_720.png') repeat-x;
+                animation: animateWave 20s linear infinite;
+                opacity: 0.6;
+            }
+            @keyframes animateWave {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-100%);
+                }
+            }
+            .popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+            .popup h3 {
+                margin-top: 0;
+            }
+            .popup-close {
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 1.5em;
+            }
+            .info-button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background: #ff758c;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-size: 1em;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+            .info-button:hover {
+                background: #ff5a73;
+            }
+        </style>
+        <h2>About Me</h2>
+        <p>
+            A motivated and enthusiastic IT student with a solid foundation in web and mobile application development alongside the concept of software engineering. 
+            Currently pursuing (graduating in August 2024) Bachelor of Information Technology at Victoria University Sydney with 
+            hands-on experience in developing web applications using C# and ASP.NET Core MVC, HTML, CSS, JavaScript, Python and various AI tools. Skilled 
+            in problem-solving, teamwork, and learning new technologies quickly. Eager to leverage academic knowledge and previous 
+            work experiences to contribute to innovative projects.
+        </p>
+        <button class="info-button">More Info</button>
+        <div class="popup" id="popup">
+            <span class="popup-close" id="popup-close">&times;</span>
+            <h3>Additional Information</h3>
+            <p>I've worked on projects involving web development. My interests include learning new programming languages, exploring AI technologies, and contributing to open-source projects.</p>
+        </div>
+        <div class="wave"></div>
+        <script>
+            document.querySelector('.info-button').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'block';
+            });
+            document.getElementById('popup-close').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'none';
+            });
+        </script>
+    </section>
+    <section id="skills" style="padding: 50px; text-align: center; background: rgba(255, 255, 255, 0.9); margin: 50px; border-radius: 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;">
+        <style>
+            #skills h2 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                position: relative;
+            }
+            #skills ul {
+                list-style: none;
+                padding: 0;
+            }
+            #skills li {
+                font-size: 1.2em;
+                line-height: 1.6;
+                margin-bottom: 10px;
+                background: #f0f0f0;
+                padding: 10px;
+                border-radius: 5px;
+                transition: transform 0.3s, background 0.3s;
+            }
+            #skills li:hover {
+                transform: scale(1.05);
+                background: #e0e0e0;
+            }
+            .wave {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: url('https://cdn.pixabay.com/photo/2015/06/15/16/29/wave-811307_960_720.png') repeat-x;
+                animation: animateWave 20s linear infinite;
+                opacity: 0.4;
+            }
+            @keyframes animateWave {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-100%);
+                }
+            }
+            .popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+            .popup h3 {
+                margin-top: 0;
+            }
+            .popup-close {
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 1.5em;
+            }
+            .info-button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background: #76b852;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-size: 1em;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+            .info-button:hover {
+                background: #5f9a41;
+            }
+        </style>
+        <h2>Skills</h2>
+        <ul>
+            <li>Programming Languages: C#, JavaScript, HTML, CSS, Python</li>
+            <li>Web Development: ASP.NET Core MVC, Front-end Design</li>
+            <li>Problem-Solving: Analytical and strategic thinking</li>
+            <li>Designing: Canva and various AI tools</li>
+            <li>Communication: Effective communicator with a focus on teamwork</li>
+            <li>Project Management: Experience with managing and delivering projects</li>
+        </ul>
+        <button class="info-button">More Info</button>
+        <div class="popup" id="popup">
+            <span class="popup-close" id="popup-close">&times;</span>
+            <h3>Additional Information</h3>
+            <p>I have a diverse set of skills ranging from programming and web development to problem-solving and project management. I am proficient in multiple programming languages and have experience with various tools and technologies.</p>
+        </div>
+        <div class="wave"></div>
+        <script>
+            document.querySelector('.info-button').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'block';
+            });
+            document.getElementById('popup-close').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'none';
+            });
+        </script>
+    </section>
+    <section id="experience" style="padding: 50px; text-align: center; background: rgba(255, 255, 255, 0.9); margin: 50px; border-radius: 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;">
+        <style>
+            #experience h2 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                position: relative;
+            }
+            #experience ul {
+                list-style: none;
+                padding: 0;
+            }
+            #experience li {
+                font-size: 1.2em;
+                line-height: 1.6;
+                margin-bottom: 10px;
+                background: #f0f0f0;
+                padding: 10px;
+                border-radius: 5px;
+                transition: transform 0.3s, background 0.3s;
+            }
+            #experience li:hover {
+                transform: scale(1.05);
+                background: #e0e0e0;
+            }
+            .wave {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: url('https://cdn.pixabay.com/photo/2015/06/15/16/29/wave-811307_960_720.png') repeat-x;
+                animation: animateWave 20s linear infinite;
+                opacity: 0.4;
+            }
+            @keyframes animateWave {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-100%);
+                }
+            }
+            .popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+            .popup h3 {
+                margin-top: 0;
+            }
+            .popup-close {
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 1.5em;
+            }
+            .info-button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background: #2193b0;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-size: 1em;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+            .info-button:hover {
+                background: #1a7b93;
+            }
+        </style>
+        <h2>Professional Experience</h2>
+        <ul>
+            <li>
+                <strong>Web Developer Intern</strong> - Milestone Institute, Kathmandu, Nepal<br>
+                Intern as web developer and got certification as well.
+            </li>
+            <li>
+                <strong>Coordinator</strong> - Bob and Pete’s Bakery, Sydenham<br>
+                Managed daily operations and coordinated staff activities.
+            </li>
+            <li>
+                <strong>Pick Packers</strong> - DB Schenker (Apple Warehouse), Eastern Creek<br>
+                Worked as part of a team to efficiently complete tasks.
+            </li>
+            <li>
+                <strong>Co-worker</strong> - Woolworths, St Mary’s NSW<br>
+                Helped hands with any kind of works like; customer service, stocking, cleaning, etc.
+            </li>
+        </ul>
+        <button class="info-button">More Info</button>
+        <div class="popup" id="popup">
+            <span class="popup-close" id="popup-close">&times;</span>
+            <h3>Additional Information</h3>
+            <p>Throughout my professional career, I have acquired a variety of skills and experiences. My roles have ranged from web development to coordination and teamwork, allowing me to develop a well-rounded skill set.</p>
+        </div>
+        <div class="wave"></div>
+        <script>
+            document.querySelector('.info-button').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'block';
+            });
+            document.getElementById('popup-close').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'none';
+            });
+        </script>
+    </section>
+    <section id="contact" style="padding: 50px; text-align: center; background: rgba(255, 255, 255, 0.9); margin: 50px; border-radius: 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;">
+        <style>
+            #contact h2 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                position: relative;
+            }
+            #contact p {
+                font-size: 1.2em;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+            #contact a {
+                color: #333;
+                text-decoration: none;
+                font-size: 1.2em;
+                margin: 10px;
+                transition: color 0.3s;
+            }
+            #contact a:hover {
+                color: #ff758c;
+            }
+            #contact img {
+                margin-top: 20px;
+                width: 150px;
+                height: auto;
+                border-radius: 50%;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .contact-icons {
+                margin-top: 20px;
+                font-size: 2em;
+            }
+            .contact-icons a {
+                margin: 0 15px;
+                color: #333;
+                transition: color 0.3s;
+            }
+            .contact-icons a:hover {
+                color: #ff758c;
+            }
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+            .icon {
+                width: 5.625rem;
+                height: 5.625rem;
+                background-color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                position: relative;
+                margin: 1rem;
+                transform: rotate(45deg);
+            }
+            .icon > i {
+                transition: transform 0.3s, color 0.3s;
+                transform: rotate(-45deg);
+            }
+            .icon:before {
+                background: var(--color);
+                content: "";
+                position: absolute;
+                width: 130%;
+                height: 130%;
+                left: -110%;
+                top: 80%;
+                transform: rotate(45deg);
+                transition: all 0.7s;
+            }
+            .icon:hover:before {
+                animation: slide 0.7s forwards;
+            }
+            .icon:hover > i {
+                transform: scale(1.2) rotate(-45deg);
+                color: #f1f1f1;
+            }
+            @keyframes slide {
+                50% {
+                    left: 10%;
+                    top: -40%;
+                }
+                100% {
+                    left: -15%;
+                    top: -15%;
+                }
+            }
+        </style>
+        <h2>Contact Me</h2>
+        <div class="wrapper">
+            <!-- First section -->
+            <div class="section">
+                <a href="mailto:ajitjaiswal270@gmail.com" class="icon" style="--color: #d14836;" title="Email Me">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/AjitJaiz" class="icon" style="--color: #333;" title="GitHub Profile" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+            </div>
+        
+            <!-- Second section -->
+            <div class="section">
+                <a href="tel:+61455178090" class="icon" style="--color: #34b7f1;" title="Call Me">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61558462275824" class="icon" style="--color: #1877f2;" title="Facebook Profile" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+
+            <!-- Third section -->
+            <div class="section">
+                <a href="https://www.linkedin.com/in/ajit-jaiswal-a1a202254/" class="icon" style="--color: #0077b5;" title="LinkedIn Profile" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/ajit_jaiz27/" class="icon" style="--color: #e4405f;" title="Instagram Profile" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <img src="images/ajit 2.jpg" alt="Ajit Jaiswal">
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>
